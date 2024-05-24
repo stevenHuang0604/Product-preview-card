@@ -1,0 +1,144 @@
+:root {
+  --color-primary: hsl(158, 36%, 37%);
+  --color-primary-dark: hsl(158, 36%, 20%);
+  --color-cream: hsl(30, 38%, 92%);
+  --color-dark-blue: hsl(212, 21%, 14%);
+  --color-blue: hsl(228, 12%, 48%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --font-size-p: 1.4rem;
+
+  --font-family-sans-serif: 'Montserrat', sans-serif;
+  --font-family-serif: 'Fraunces', serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family-sans-serif);
+  background-color: var(--color-cream);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  max-width: 60rem;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  margin: 20rem auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card__image {
+  grid-column: 1/2;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+}
+
+.card__overview {
+  grid-column: 2/-1;
+  width: 100%;
+  padding: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.card__category {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  color: var(--color-blue);
+}
+
+.card__name {
+  font-family: var(--font-family-serif);
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: var(--color-dark-blue);
+}
+
+.card__detail {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-blue);
+}
+
+.card__price {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card__price-discount {
+  font-family: var(--font-family-serif);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.card__price-origin {
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-decoration: line-through;
+  color: var(--color-blue);
+}
+
+.btn {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 1.6rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn:is(:hover, :active) {
+  background-color: var(--color-primary-dark);
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    max-width: 40rem;
+    grid-template-columns: minmax(1fr, 40rem);
+  }
+
+  .card__image {
+    grid-column: 1/-1;
+    content: url('./images/image-product-mobile.jpg');
+    height: auto;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+  }
+
+  .card__overview {
+    padding: 2rem;
+
+    grid-column: 1/-1;
+    gap: 1.6rem;
+  }
+}
